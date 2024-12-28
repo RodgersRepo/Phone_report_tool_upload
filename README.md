@@ -16,7 +16,7 @@ When you are ready to publish:
 ```sh
 dotnet publish -c Release -o ./publish
 ```
-Then copy the **publish** folder to your server. Please copy the **web.config** folder **maxAllowedContentLength** to your published **web.config** file. Cisco seem to be recommending file upload sizes of at least 20MB.
+Then copy the **publish** folder to your server. Please copy the **web.config** attribute **maxAllowedContentLength** to your published **web.config** file. Cisco seem to be recommending file upload sizes of at least 20MB.
 
 ## Usage
 
