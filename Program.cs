@@ -43,7 +43,7 @@ app.MapPost("/upload", async (HttpRequest request) =>
         return Results.Problem("Error: You must select a file to upload.", statusCode: 500);
     }
 
-    // Get rid of quotes around the device name, serial number and username if they exist
+    // Read the form data
     var form = await request.ReadFormAsync();
     var file = form.Files["prt_file"];
   
@@ -52,13 +52,13 @@ app.MapPost("/upload", async (HttpRequest request) =>
         return Results.Problem("Error: No file found in the request.", statusCode: 500);
     }
     
-    // Remove the charage returns from the form data
+    // Remove the charage returns line feeds from the form data
     var serialno = form["serialno"].ToString().Replace("\r", "").Replace("\n", "");
     var devicename = form["devicename"].ToString().Replace("\r", "").Replace("\n", "");
     Console.WriteLine($"New upload request from {devicename} serial number {serialno}");
     var filename = Path.GetFileName(file.FileName);
 
-    // Create the local directory for the file upload if it dosnt already exsist
+    // Create the local directory for the file upload if it dosnt already exist
     Directory.CreateDirectory(AppContext.BaseDirectory + $"Logs\\{devicename}");
     var fullfilename = Path.Combine(AppContext.BaseDirectory + $"Logs\\{devicename}", filename);
     Console.WriteLine($"Will attemp to save to {fullfilename}");
