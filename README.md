@@ -4,7 +4,7 @@ A dot net core minimal api application that allows phones or the CUCM "PRT Tool"
 
 Full instructions on how to set up a "Customer support upload URL" are contained in the link above. Make sure the URL you place in the text field is:
 ```sh
-http://<YOU SERVER URL AND PORT>/upload
+http://<YOUR SERVER URL AND PORT>/upload
 ```
 ## Installation
 ### To VSCODE
